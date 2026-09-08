@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKUM Class Portals</title>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background: #f5f6fa;
+        color: #222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 20px;
+    }
+
+    .landing-header {
+        text-align: center;
+        margin-bottom: 44px;
+        max-width: 560px;
+    }
+
+    .landing-badge {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .landing-badge [data-lucide] { width: 32px; height: 32px; }
+
+    .landing-header h1 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+    }
+
+    .landing-header p.institution {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+    }
+
+    .landing-header p.tagline {
+        color: #888;
+        font-size: 1rem;
+        font-style: italic;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+        gap: 28px;
+        width: 100%;
+        max-width: 760px;
+        justify-content: center;
+    }
+
+    .dept-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 32px 26px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border-top: 5px solid var(--dept-color);
+    }
+
+    .dept-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .dept-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+        background: var(--dept-color-light);
+        color: var(--dept-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .dept-icon [data-lucide] { width: 28px; height: 28px; }
+
+    .dept-card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        color: #1a1a1a;
+    }
+
+    .dept-card p {
+        color: #666;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        flex-grow: 1;
+        margin-bottom: 24px;
+    }
+
+    .dept-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: var(--dept-color);
+        color: #fff;
+        text-decoration: none;
+        padding: 13px 20px;
+        border-radius: 9px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: opacity 0.2s ease;
+    }
+
+    .dept-btn:hover { opacity: 0.9; }
+    .dept-btn [data-lucide] { width: 18px; height: 18px; }
+
+    .landing-footer {
+        margin-top: 48px;
+        text-align: center;
+        color: #999;
+        font-size: 0.82rem;
+    }
+
+    @media (max-width: 480px) {
+        .landing-header h1 { font-size: 1.5rem; }
+        .cards-grid { grid-template-columns: 1fr; max-width: 340px; }
+    }
+</style>
+</head>
+<body>
+
+    <div class="landing-header">
+        <div class="landing-badge"><i data-lucide="graduation-cap" aria-hidden="true"></i></div>
+        <h1>AKUM CLASS PORTALS</h1>
+        <p class="institution">Abdulkadir Kure University, Minna</p>
+        <p class="tagline">Choose your department</p>
+    </div>
+
+    <div class="cards-grid">
+        <!-- History & International Relations -->
+        <div class="dept-card" style="--dept-color:#8b0000; --dept-color-light:#fbe9e9;">
+            <div class="dept-icon"><i data-lucide="landmark" aria-hidden="true"></i></div>
+            <h2>History & International Relations</h2>
+            <p>Access the History & International Relations class portal, resources, announcements and class community.</p>
+            <a href="./hir/login.html" class="dept-btn">
+                <i data-lucide="log-in" aria-hidden="true"></i> Enter H.I.R Portal
+            </a>
+        </div>
+
+        <!-- Social Studies -->
+        <div class="dept-card" style="--dept-color:#2563EB; --dept-color-light:#e8f0fe;">
+            <div class="dept-icon"><i data-lucide="users" aria-hidden="true"></i></div>
+            <h2>Social Studies</h2>
+            <p>Access the Social Studies class portal, academic resources, announcements and class community.</p>
+            <a href="./social-studies/login.html" class="dept-btn">
+                <i data-lucide="log-in" aria-hidden="true"></i> Enter Social Studies Portal
+            </a>
+        </div>
+    </div>
+
+    <p class="landing-footer">More departments coming soon.</p>
+
+    <script>
+        if (window.lucide) { window.lucide.createIcons(); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "akum-portal-backend",
+  "version": "1.0.0",
+  "description": "Centralized backend for AKUM Class Portals (H.I.R, Social Studies, and future departments)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "migrate": "node scripts/migrate.js",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "pg": "^8.12.0"
+  }
+}

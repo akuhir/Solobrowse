@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKUM Social Studies CLASS - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .photo-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .photo-lightbox.active { display: flex; }
+        .photo-lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .photo-lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            color: #ffffff;
+            font-size: 2.2rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <button class="hamburger-menu" id="hamburgerMenu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="navbar-title">SOCIAL STUDIES</div>
+        <div class="navbar-controls">
+            <!-- No department logo yet — placeholder icon shown instead -->
+            <div class="navbar-logo-placeholder"><i data-lucide="landmark" aria-hidden="true"></i></div>
+        </div>
+    </header>
+
+    <nav class="side-navbar" id="sideNavbar">
+        <a href="#home" class="nav-link active" data-section="home"><i data-lucide="house" aria-hidden="true"></i>HOME</a>
+        <a href="#announcements" class="nav-link" data-section="announcements"><i data-lucide="megaphone" aria-hidden="true"></i>ANNOUNCEMENTS</a>
+        <a href="#assignments" class="nav-link" data-section="assignments"><i data-lucide="clipboard-list" aria-hidden="true"></i>ASSIGNMENTS</a>
+        <a href="#lecture-notes" class="nav-link" data-section="lecture-notes"><i data-lucide="book-open" aria-hidden="true"></i>LECTURE NOTES</a>
+        <a href="#photos" class="nav-link" data-section="photos"><i data-lucide="images" aria-hidden="true"></i>PHOTOS</a>
+        <a href="#videos" class="nav-link" data-section="videos"><i data-lucide="play-square" aria-hidden="true"></i>VIDEOS</a>
+        <a href="#class-members" class="nav-link" data-section="class-members"><i data-lucide="users" aria-hidden="true"></i>CLASS MEMBERS</a>
+        <a href="#contact" class="nav-link" data-section="contact"><i data-lucide="mail" aria-hidden="true"></i>CONTACT</a>
+        <button id="themeToggle" class="nav-link nav-theme-btn" title="Toggle dark mode"><i data-lucide="moon" aria-hidden="true"></i>DARK MODE</button>
+        <button id="logoutBtn" class="nav-link nav-logout-btn"><i data-lucide="log-out" aria-hidden="true"></i>LOGOUT</button>
+    </nav>
+
+    <main class="main-content">
+        <section id="home" class="content-section active">
+            <div class="hero-section">
+                <div class="hero-placeholder">
+                    <i data-lucide="landmark" aria-hidden="true"></i>
+                    <p>Class photo coming soon</p>
+                </div>
+            </div>
+
+            <div class="home-grid">
+                <div class="welcome-card">
+                    <h2>Welcome to the Social Studies Portal</h2>
+                    <p>Your central hub for announcements, assignments, lecture notes, class materials and more. Stay connected with your Social Studies class.</p>
+                    <p class="user-info">Logged in as: <strong id="userDisplay"></strong></p>
+                    <!-- ✏️ UPDATE THIS whenever you make changes to the portal -->
+                    <p class="last-updated">Last updated: September 2026</p>
+                </div>
+            </div>
+
+            <!-- ✏️ UPDATE WEEKLY: Quote of the Week + Person of the Week -->
+            <div class="spotlight-grid">
+                <div class="quote-card">
+                    <span class="spotlight-label">Quote of the Week</span>
+                    <div class="spotlight-icon"><i data-lucide="quote" aria-hidden="true"></i></div>
+                    <p class="quote-text">"Society is indeed a contract... it is a partnership in every virtue."</p>
+                    <p class="quote-author">— Edmund Burke</p>
+                </div>
+
+                <div class="person-card">
+                    <span class="spotlight-label">Person of the Week</span>
+                    <div class="person-photo-wrap">
+                        <img src="images/Person.jpg" alt="Person of the Week" class="person-photo" onerror="this.style.display='none'; document.getElementById('personPhotoFallback').style.display='flex';">
+                        <div id="personPhotoFallback" class="person-photo-fallback" style="display:none;"><i data-lucide="user" aria-hidden="true"></i></div>
+                    </div>
+                    <h3 class="person-name">Coming Soon</h3>
+                    <p class="person-note">Placeholder — awaiting department information. This spotlight will feature a Social Studies classmate each week.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="announcements" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="megaphone" aria-hidden="true"></i> Announcements</h2>
+            </div>
+            <div class="announcements-container">
+                <div class="announcement-card">
+                    <div class="announcement-date">Today</div>
+                    <h3>Welcome to the Social Studies Class Portal</h3>
+                    <p>This is your dedicated space where course materials, assignments, and class information will be shared once available. Check back regularly for updates.</p>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-date">Today</div>
+                    <h3>Departmental Announcements Coming Soon</h3>
+                    <p>This section will contain verified departmental announcements once the Social Studies class information is provided.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="assignments" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="clipboard-list" aria-hidden="true"></i> Assignments</h2>
+            </div>
+            <div class="assignments-info-card">
+                <h3>All Assignments</h3>
+                <p>Placeholder assignments below — real assignments and submission links will be added once available.</p>
+                <ul style="margin: 15px 0 0 20px; color: var(--text); line-height: 1.8;">
+                    <li>Assignment 01 — Introduction to Social Studies</li>
+                    <li>Assignment 02 — Society, Culture and Education</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
+                    Assignment files, deadlines, and submission details will appear here once the department provides real assignment data.
+                </p>
+                <div class="section-end-actions">
+                    <span class="btn-coming-soon"><i data-lucide="clipboard-list" aria-hidden="true"></i> See More — Coming Soon</span>
+                    <span class="btn-coming-soon"><i data-lucide="file-plus" aria-hidden="true"></i> Upload assignments — Coming Soon</span>
+                    <p class="section-end-note">Placeholder — awaiting department information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lecture-notes" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="book-open" aria-hidden="true"></i> Lecture Notes</h2>
+            </div>
+            <div class="lecture-notes-container">
+                <div class="lecture-card">
+                    <h3>Introduction to Social Studies</h3>
+                    <p class="lecture-meta">Placeholder — awaiting department information</p>
+                    <div class="lecture-files">
+                        <span class="file-link" style="opacity:0.6; cursor:not-allowed;"><i data-lucide="file-text" aria-hidden="true"></i> Coming Soon</span>
+                    </div>
+                </div>
+                <div class="lecture-card">
+                    <h3>Society and Culture</h3>
+                    <p class="lecture-meta">Placeholder — awaiting department information</p>
+                    <div class="lecture-files">
+                        <span class="file-link" style="opacity:0.6; cursor:not-allowed;"><i data-lucide="file-text" aria-hidden="true"></i> Coming Soon</span>
+                    </div>
+                </div>
+                <div class="lecture-card">
+                    <h3>Foundations of Social Studies Education</h3>
+                    <p class="lecture-meta">Placeholder — awaiting department information</p>
+                    <div class="lecture-files">
+                        <span class="file-link" style="opacity:0.6; cursor:not-allowed;"><i data-lucide="file-text" aria-hidden="true"></i> Coming Soon</span>
+                    </div>
+                </div>
+                <div class="lecture-card">
+                    <h3>Citizenship and Civic Education</h3>
+                    <p class="lecture-meta">Placeholder — awaiting department information</p>
+                    <div class="lecture-files">
+                        <span class="file-link" style="opacity:0.6; cursor:not-allowed;"><i data-lucide="file-text" aria-hidden="true"></i> Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+            <div class="section-end-actions">
+                <span class="btn-coming-soon"><i data-lucide="book-open" aria-hidden="true"></i> See More — Coming Soon</span>
+                <span class="btn-coming-soon"><i data-lucide="file-plus" aria-hidden="true"></i> Upload notes — Coming Soon</span>
+                <p class="section-end-note">Placeholder — awaiting department information.</p>
+            </div>
+        </section>
+
+        <section id="photos" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="camera" aria-hidden="true"></i> Class Photos</h2>
+            </div>
+            <div class="coming-soon-card">
+                <div class="coming-soon-icon"><i data-lucide="images" aria-hidden="true"></i></div>
+                <h3>Coming Soon</h3>
+                <p>Placeholder — awaiting department information. Class photos will appear here once the Social Studies class shares them.</p>
+            </div>
+        </section>
+
+        <section id="videos" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="video" aria-hidden="true"></i> Class Videos</h2>
+            </div>
+            <div class="coming-soon-card">
+                <div class="coming-soon-icon"><i data-lucide="play-square" aria-hidden="true"></i></div>
+                <h3>Coming Soon</h3>
+                <p>Placeholder — awaiting department information. Recorded lectures and class videos will appear here once available.</p>
+            </div>
+        </section>
+
+        <section id="class-members" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="users" aria-hidden="true"></i> Class Members</h2>
+            </div>
+            <div class="coming-soon-card">
+                <div class="coming-soon-icon"><i data-lucide="users" aria-hidden="true"></i></div>
+                <h3>Coming Soon</h3>
+                <p>Placeholder — awaiting department information. The Social Studies class roster will appear here once provided.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="section-header">
+                <h2><i data-lucide="user" aria-hidden="true"></i> Contact & Administrator</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <h3>Administrator</h3>
+                    <div class="admin-info">
+                        <p><strong>Name:</strong> Coming Soon</p>
+                        <p><strong>Email:</strong> Coming Soon</p>
+                        <p><strong>WhatsApp:</strong> Coming Soon</p>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-light);">
+                            Placeholder — awaiting department information. Administrator contact details will be added once provided.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Quick Links</h3>
+                    <div class="quick-links">
+                        <span class="btn-coming-soon"><i data-lucide="file-plus" aria-hidden="true"></i> Upload here — Coming Soon</span>
+                        <span class="btn-coming-soon"><i data-lucide="clipboard-list" aria-hidden="true"></i> All Assignments — Coming Soon</span>
+                        <span class="btn-coming-soon"><i data-lucide="book-open" aria-hidden="true"></i> Lecture Materials — Coming Soon</span>
+                        <span class="btn-coming-soon"><i data-lucide="images" aria-hidden="true"></i> Class Photos — Coming Soon</span>
+                        <span class="btn-coming-soon"><i data-lucide="play-square" aria-hidden="true"></i> Class Videos — Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="photoLightbox" class="photo-lightbox" onclick="closePhotoLightbox()">
+        <span class="photo-lightbox-close" onclick="closePhotoLightbox()">&times;</span>
+        <img id="photoLightboxImg" src="" alt="Full size photo">
+    </div>
+
+    <script>
+        function openPhotoLightbox(src) {
+            document.getElementById('photoLightboxImg').src = src;
+            document.getElementById('photoLightbox').classList.add('active');
+        }
+        function closePhotoLightbox() {
+            document.getElementById('photoLightbox').classList.remove('active');
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+});
+</script>
+
+</body>
+</html>

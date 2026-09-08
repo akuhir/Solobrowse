@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AKUM H.I.R</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header with Hamburger Menu -->
+    <header class="navbar">
+        <button class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="navbar-title">HOMO SAPIENS</div>
+        <div class="navbar-controls">
+            <img src="images/logo.png" alt="AKUM Logo" class="navbar-logo-brand" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline';">
+            <span id="logoFallback" style="display:none;"><i data-lucide="graduation-cap" aria-hidden="true" style="width:26px;height:26px;color:#fff;"></i></span>
+        </div>
+    </header>
+
+    <!-- Side Navigation Menu -->
+    <nav class="side-navbar" id="sideNavbar">
+        <a href="index.html" class="nav-link"><i data-lucide="house" aria-hidden="true"></i>BACK TO PORTAL</a>
+        <a href="admin-dashboard.html" class="nav-link active"><i data-lucide="shield" aria-hidden="true"></i>ADMIN DASHBOARD</a>
+        <button id="logoutBtn" class="nav-link nav-logout-btn"><i data-lucide="log-out" aria-hidden="true"></i>LOGOUT</button>
+    </nav>
+
+    <!-- Access check state -->
+    <main class="main-content">
+        <div id="accessChecking" class="section-header">
+            <h2><i data-lucide="loader" aria-hidden="true"></i> Checking access...</h2>
+        </div>
+
+        <div id="accessDenied" class="content-section" style="display:none;">
+            <div class="section-header">
+                <h2><i data-lucide="shield-off" aria-hidden="true"></i> Access Denied</h2>
+            </div>
+            <div class="coming-soon-card" style="border-style: solid; border-color: var(--danger);">
+                <div class="coming-soon-icon" style="color: var(--danger);"><i data-lucide="lock" aria-hidden="true"></i></div>
+                <h3 style="color: var(--danger);">You don't have access to this page</h3>
+                <p>Only the H.I.R department administrator can view this dashboard. Redirecting you back to the portal...</p>
+            </div>
+        </div>
+
+        <div id="adminDashboard" class="content-section" style="display:none;">
+            <div class="section-header">
+                <h2><i data-lucide="shield" aria-hidden="true"></i> Admin Dashboard</h2>
+            </div>
+            <p style="color: var(--text-light); margin-bottom: 25px;">
+                Manage the public Person of the Week and Quote of the Week sections shown on the H.I.R Home page.
+            </p>
+
+            <div id="statusMessage" class="admin-status-message" style="display:none;"></div>
+
+            <!-- PERSON OF THE WEEK -->
+            <div class="admin-card">
+                <h3><i data-lucide="user" aria-hidden="true"></i> Person of the Week</h3>
+
+                <div class="admin-field-block">
+                    <label class="admin-field-label">Photo</label>
+                    <div class="admin-photo-row">
+                        <div class="admin-photo-preview-wrap">
+                            <img id="adminPersonPhoto" class="admin-photo-preview" src="" alt="Person of the Week" style="display:none;">
+                            <div id="adminPersonPhotoPlaceholder" class="admin-photo-placeholder"><i data-lucide="user" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="admin-photo-actions">
+                            <label class="dash-btn btn-announcements admin-upload-label">
+                                <i data-lucide="upload" aria-hidden="true"></i> Upload
+                                <input type="file" id="personPhotoInput" accept="image/*" style="display:none;">
+                            </label>
+                            <button id="deletePersonPhotoBtn" class="btn-coming-soon" style="cursor:pointer; border-style:solid; color: var(--danger); border-color: var(--danger);">
+                                <i data-lucide="trash-2" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-field-block">
+                    <label class="admin-field-label">Name</label>
+                    <p id="adminPersonNameDisplay" class="admin-field-display"></p>
+                    <textarea id="adminPersonNameInput" class="admin-field-input" style="display:none;" rows="1"></textarea>
+                    <div class="admin-field-buttons">
+                        <button class="dash-btn btn-notes admin-edit-btn" data-target="personName"><i data-lucide="pencil" aria-hidden="true"></i> Edit</button>
+                        <button class="dash-btn btn-assignments admin-save-btn" data-target="personName" style="display:none;"><i data-lucide="check" aria-hidden="true"></i> Save</button>
+                        <button class="btn-coming-soon admin-cancel-btn" data-target="personName" style="display:none; cursor:pointer;"><i data-lucide="x" aria-hidden="true"></i> Cancel</button>
+                    </div>
+                </div>
+
+                <div class="admin-field-block">
+                    <label class="admin-field-label">Description</label>
+                    <p id="adminPersonNoteDisplay" class="admin-field-display"></p>
+                    <textarea id="adminPersonNoteInput" class="admin-field-input" style="display:none;" rows="5"></textarea>
+                    <div class="admin-field-buttons">
+                        <button class="dash-btn btn-notes admin-edit-btn" data-target="personNote"><i data-lucide="pencil" aria-hidden="true"></i> Edit</button>
+                        <button class="dash-btn btn-assignments admin-save-btn" data-target="personNote" style="display:none;"><i data-lucide="check" aria-hidden="true"></i> Save</button>
+                        <button class="btn-coming-soon admin-cancel-btn" data-target="personNote" style="display:none; cursor:pointer;"><i data-lucide="x" aria-hidden="true"></i> Cancel</button>
+                    </div>
+                </div>
+
+                <button id="deletePersonEntryBtn" class="btn-coming-soon" style="cursor:pointer; border-style:solid; color: var(--danger); border-color: var(--danger); margin-top: 10px;">
+                    <i data-lucide="trash-2" aria-hidden="true"></i> Delete Entire Person of the Week Entry
+                </button>
+            </div>
+
+            <!-- QUOTE OF THE WEEK -->
+            <div class="admin-card">
+                <h3><i data-lucide="quote" aria-hidden="true"></i> Quote of the Week</h3>
+
+                <div class="admin-field-block">
+                    <label class="admin-field-label">Quote</label>
+                    <p id="adminQuoteTextDisplay" class="admin-field-display"></p>
+                    <textarea id="adminQuoteTextInput" class="admin-field-input" style="display:none;" rows="3"></textarea>
+                    <div class="admin-field-buttons">
+                        <button class="dash-btn btn-notes admin-edit-btn" data-target="quoteText"><i data-lucide="pencil" aria-hidden="true"></i> Edit</button>
+                        <button class="dash-btn btn-assignments admin-save-btn" data-target="quoteText" style="display:none;"><i data-lucide="check" aria-hidden="true"></i> Save</button>
+                        <button class="btn-coming-soon admin-cancel-btn" data-target="quoteText" style="display:none; cursor:pointer;"><i data-lucide="x" aria-hidden="true"></i> Cancel</button>
+                    </div>
+                </div>
+
+                <div class="admin-field-block">
+                    <label class="admin-field-label">Author</label>
+                    <p id="adminQuoteAuthorDisplay" class="admin-field-display"></p>
+                    <textarea id="adminQuoteAuthorInput" class="admin-field-input" style="display:none;" rows="1"></textarea>
+                    <div class="admin-field-buttons">
+                        <button class="dash-btn btn-notes admin-edit-btn" data-target="quoteAuthor"><i data-lucide="pencil" aria-hidden="true"></i> Edit</button>
+                        <button class="dash-btn btn-assignments admin-save-btn" data-target="quoteAuthor" style="display:none;"><i data-lucide="check" aria-hidden="true"></i> Save</button>
+                        <button class="btn-coming-soon admin-cancel-btn" data-target="quoteAuthor" style="display:none; cursor:pointer;"><i data-lucide="x" aria-hidden="true"></i> Cancel</button>
+                    </div>
+                </div>
+
+                <button id="deleteQuoteEntryBtn" class="btn-coming-soon" style="cursor:pointer; border-style:solid; color: var(--danger); border-color: var(--danger); margin-top: 10px;">
+                    <i data-lucide="trash-2" aria-hidden="true"></i> Delete Entire Quote of the Week Entry
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) { window.lucide.createIcons(); }
+        });
+    </script>
+</body>
+</html>
