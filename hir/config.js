@@ -3,7 +3,7 @@
 // nothing else in the frontend needs to change.
 window.AKUM_API_BASE_URL = 'http://localhost:4000';
 // Example once deployed:
-// window.AKUM_API_BASE_URL = 'https://akum-portal-backend.onrender.com';
+// window.AKUM_API_BASE_URL = 'https://solobrowse.onrender.com';
 
 // This department's identifier, as known to the backend.
 window.AKUM_DEPARTMENT = 'hir';
